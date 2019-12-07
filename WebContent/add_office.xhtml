@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+	<h:head>
+		<title>Add Office</title>
+		<h:outputStylesheet library="css" name="styles.css" />
+	</h:head>
+	
+	<h:body>
+		<h:messages globalOnly="true" styleClass="error" />
+
+		<h3>Add Office</h3>
+		
+		<h:form>
+			<h:outputLabel for="sid">Store ID: </h:outputLabel>
+			<h:inputText value="#{office.sid}"
+				id="sid"
+				required="true"
+				requiredMessage="ID is mandatory"
+			/>
+			<br/><br/>
+			<h:message for="sid" styleClass="error" />
+			
+			<br/><br/>
+			
+			<h:outputLabel for="location">Location: </h:outputLabel>
+			<h:inputText value="#{office.location}"
+				id="location"
+				required="true"
+				requiredMessage="Location is mandatory"
+			/>
+			<br/><br/>
+			<h:message for="location" styleClass="error" />
+			
+			<br/><br/>
+			
+			<h:commandButton value="Add" action="#{officeController.addOffice(office)}" />
+		</h:form>
+		
+		<br/><br/>
+		
+		<h:link value="Home" outcome="index" />
+		<h:outputText value="&#160;" />
+		<h:link value="Stores" outcome="list_stores" />
+	</h:body>
+</html>

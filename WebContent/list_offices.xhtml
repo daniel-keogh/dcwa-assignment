@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+	<h:head>
+		<title>Manage Offices</title>
+		<h:outputStylesheet library="css" name="styles.css" />
+		<h:outputStylesheet library="css" name="tables.css" />
+	</h:head>
+	
+	<f:metadata>
+		 <f:event type="preRenderView" listener="#{officeController.loadOffices()}"/>
+	</f:metadata>
+	 
+	<h:body>
+		<h:messages globalOnly="true" styleClass="error" />
+		
+		<br/>
+		<h:button value="Add Head Office" styleClass="addbutton" outcome="add_office" />
+		<br/>
+		
+		<h:dataTable
+		   value="#{officeController.offices}" var="office"
+		   styleClass="table"
+		   headerClass="table-header"
+		   rowClasses="table-odd-row,table-even-row">
+		   <h:column>    				
+		      	<f:facet name="header">Store ID</f:facet>    				
+				#{office.sid}
+		   </h:column>
+		   <h:column>
+		      	<f:facet name="header">Location</f:facet>
+				#{office.location}
+		   </h:column>
+		   <h:column>
+		      	<f:facet name="header">Action</f:facet>
+		      	<h:form>
+			      	<h:commandLink value="Delete" action="#{officeController.deleteOffice(office)}" />
+		      	</h:form>
+		   </h:column>
+		</h:dataTable>
+		
+		<br/>
+		
+		<h:link value="Home" outcome="index"/>
+	</h:body>
+</html>
