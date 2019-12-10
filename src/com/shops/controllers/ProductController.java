@@ -4,7 +4,7 @@ import com.shops.Product;
 import com.shops.dao.DAO;
 
 import java.sql.SQLException;
-
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 
 import javax.faces.application.FacesMessage;
@@ -54,5 +54,20 @@ public class ProductController {
 			FacesMessage message = new FacesMessage("Error: "+ e.getMessage());
 			FacesContext.getCurrentInstance().addMessage(null, message);
 		}
+	}
+	
+	public String addProduct(Product p) {
+		try {
+			dao.addProduct(p);
+			return "list_products.xhtml";
+		} catch (SQLIntegrityConstraintViolationException e) {
+			FacesMessage message = new FacesMessage("Error: The entered Store ID does not exist");
+			FacesContext.getCurrentInstance().addMessage(null, message);
+		} catch (Exception e) {
+			FacesMessage message = new FacesMessage("Error: "+ e.getMessage());
+			FacesContext.getCurrentInstance().addMessage(null, message);
+		}
+		
+		return null;
 	}
 }

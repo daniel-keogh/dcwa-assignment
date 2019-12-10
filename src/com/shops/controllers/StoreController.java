@@ -62,7 +62,6 @@ public class StoreController {
 			FacesMessage message = new FacesMessage("Error: Can't communicate with DB");
 			FacesContext.getCurrentInstance().addMessage(null, message);
 		} catch (Exception e) {
-			e.printStackTrace();
 			FacesMessage message = new FacesMessage("Error: "+ e.getMessage());
 			FacesContext.getCurrentInstance().addMessage(null, message);
 		}
@@ -88,17 +87,18 @@ public class StoreController {
 	public String showProductDetails(Store s) {
 		try {
 			productDetails = dao.loadProductDetails(s);
+			
+			// Go to the Store/Product Details page
+			return "store_product_details.xhtml";
 		} catch (SQLException e) {
 			FacesMessage message = new FacesMessage(String.format("Error: Failed to get details about %s's products", s.getName()));
 			FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
 		} catch (Exception e) {
 			FacesMessage message = new FacesMessage("Error: "+ e.getMessage());
 			FacesContext.getCurrentInstance().addMessage(null, message);
-			return null;
 		}
 		
-		// Go to the Store/Product Details page
-		return "store_product_details.xhtml";
+		
+		return null;
 	}
 }

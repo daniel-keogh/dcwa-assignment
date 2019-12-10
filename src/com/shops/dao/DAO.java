@@ -116,11 +116,28 @@ public class DAO {
 		Connection conn = sqlDS.getConnection();
 
 		String sql = "DELETE FROM product WHERE pid = ?";
-		
+
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, p.getPid());
-		
+
 		stmt.execute();	
+
+		stmt.close();
+		conn.close();
+	}
+	
+	public void addProduct(Product p) throws SQLException {
+		Connection conn = sqlDS.getConnection();
+		
+		String sql = "INSERT INTO product(sid, prodName, price) VALUES(?, ?, ?)";
+		
+		PreparedStatement stmt = conn.prepareStatement(sql);
+
+		stmt.setInt(1, p.getSid());
+		stmt.setString(2, p.getName());
+		stmt.setDouble(3, p.getPrice());
+		
+		stmt.execute();
 		
 		stmt.close();
 		conn.close();

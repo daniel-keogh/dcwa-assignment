@@ -32,7 +32,7 @@ public class OfficeController {
 		try {
 			offices = mongoDao.loadOffices();
 		} 
-		// A MongoTimeoutException will be thrown if there is an issue connecting. May take a while before it is caught, though.
+		// A MongoTimeoutException will *eventually* be thrown if there is an issue connecting.
 		catch (MongoTimeoutException e) {
 			FacesMessage message = new FacesMessage("Error: Cannot connect to Mongo Database");
 			FacesContext.getCurrentInstance().addMessage(null, message);
