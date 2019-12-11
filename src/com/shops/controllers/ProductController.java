@@ -61,7 +61,7 @@ public class ProductController {
 			dao.addProduct(p);
 			return "list_products.xhtml";
 		} catch (SQLIntegrityConstraintViolationException e) {
-			FacesMessage message = new FacesMessage("Error: The entered Store ID does not exist");
+			FacesMessage message = new FacesMessage(String.format("Error: Store ID: %d does not exist", p.getSid()));
 			FacesContext.getCurrentInstance().addMessage(null, message);
 		} catch (Exception e) {
 			FacesMessage message = new FacesMessage("Error: "+ e.getMessage());

@@ -98,7 +98,6 @@ public class StoreController {
 			FacesContext.getCurrentInstance().addMessage(null, message);
 		}
 		
-		
 		return null;
 	}
 }
