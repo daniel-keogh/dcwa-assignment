@@ -15,6 +15,8 @@
 	</f:metadata>
 	 
 	<h:body>
+		<h:messages globalOnly="true" styleClass="error" />
+	
 		<br/>
 		<h:button value="Add Product" styleClass="addbutton" outcome="add_product" />
 		<br/>
@@ -24,7 +26,7 @@
 		   styleClass="table"
 		   headerClass="table-header"
 		   rowClasses="table-odd-row,table-even-row">
-		   <h:column>
+		   <h:column>    				
 		      	<f:facet name="header">Store ID</f:facet>
 				#{product.sid}
 		   </h:column>

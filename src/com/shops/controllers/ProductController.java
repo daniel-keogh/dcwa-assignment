@@ -36,7 +36,7 @@ public class ProductController {
 		try {
 			products = dao.loadProducts();
 		} catch (SQLException e) {
-			FacesMessage message = new FacesMessage("Error: Unable to connect to MySQL Database");
+			FacesMessage message = new FacesMessage("Error: Cannot connect to MySQL Database");
 			FacesContext.getCurrentInstance().addMessage(null, message);
 		} catch (Exception e) {
 			FacesMessage message = new FacesMessage("Error: "+ e.getMessage());
