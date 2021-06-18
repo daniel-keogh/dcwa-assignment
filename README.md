@@ -1,4 +1,4 @@
-# DCWA Assignment One
+# DCWA Assignment
 
 Y3S1 Data Centric Web Applications Assignment
 
