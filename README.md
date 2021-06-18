@@ -1,6 +1,7 @@
-# dcwa52218
+# DCWA Assignment One
+
 Y3S1 Data Centric Web Applications Assignment
 
 ## Description
 
-A JSF Web Application with MySQL and MongoDB Databases.
+A JSF "shops" Web Application that queries and updates a MySQL database and a MongoDB database.
